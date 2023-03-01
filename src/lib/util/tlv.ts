@@ -1,5 +1,5 @@
-import assert from "assert";
-import * as hapCrypto from "../util/hapCrypto";
+import assert from "node:assert";
+import * as hapCrypto from "../util/hapCrypto.ts";
 
 /**
  * Type Length Value encoding/decoding, used by HAP as a wire format.

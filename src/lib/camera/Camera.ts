@@ -1,4 +1,4 @@
-import { Service } from "../Service";
+import { Service } from "../Service.ts";
 // noinspection JSDeprecatedSymbols
 import {
   CameraStreamingDelegate,
@@ -11,8 +11,8 @@ import {
   StreamingRequest,
   StreamRequest,
   StreamRequestCallback,
-} from "../..";
-import { NodeCallback, SessionIdentifier } from "../../types";
+} from "../../index.ts";
+import { NodeCallback, SessionIdentifier } from "../../types.ts";
 
 // noinspection JSDeprecatedSymbols
 /**

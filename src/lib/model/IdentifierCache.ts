@@ -1,7 +1,7 @@
-import crypto from "crypto";
-import util from "util";
-import { MacAddress } from "../../types";
-import { HAPStorage } from "./HAPStorage";
+import crypto from "node:crypto";
+import util from "node:util";
+import { MacAddress } from "../../types.ts";
+import { HAPStorage } from "./HAPStorage.ts";
 
 /**
  * IdentifierCache is a model class that manages a system of associating HAP "Accessory IDs" and "Instance IDs"

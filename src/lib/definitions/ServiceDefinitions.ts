@@ -1,8 +1,8 @@
 // THIS FILE IS AUTO-GENERATED - DO NOT MODIFY
 // V=880
 
-import { Characteristic } from "../Characteristic";
-import { Service } from "../Service";
+import { Characteristic } from "../Characteristic.ts";
+import { Service } from "../Service.ts";
 
 /**
  * Service "Access Code"

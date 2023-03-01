@@ -1,7 +1,7 @@
-import * as uuid from "../util/uuid";
-import * as hapCrypto from "../util/hapCrypto";
-import assert from "assert";
-import createDebug from "debug";
+import * as uuid from "../util/uuid.ts";
+import * as hapCrypto from "../util/hapCrypto.ts";
+import assert from "node:assert";
+import { createDebug } from "../../deps.ts";
 
 // welcome to hell :)
 // in this file lies madness and frustration. and It's not only about HDS. Also, JavaScript is hell

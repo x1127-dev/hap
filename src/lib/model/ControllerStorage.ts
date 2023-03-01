@@ -1,9 +1,9 @@
-import { MacAddress } from "../../types";
-import util from "util";
-import createDebug from "debug";
-import { ControllerIdentifier, SerializableController } from "../controller";
-import { Accessory } from "../Accessory";
-import { HAPStorage } from "./HAPStorage";
+import { MacAddress } from "../../types.ts";
+import util from "node:util";
+import { createDebug } from "../../deps.ts";
+import { ControllerIdentifier, SerializableController } from "../controller/index.ts";
+import { Accessory } from "../Accessory.ts";
+import { HAPStorage } from "./HAPStorage.ts";
 
 
 const debug = createDebug("HAP-NodeJS:ControllerStorage");

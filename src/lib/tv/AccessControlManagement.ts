@@ -1,8 +1,8 @@
-import { EventEmitter } from "events";
-import { Characteristic } from "../Characteristic";
-import type { AccessControl } from "../definitions";
-import { Service } from "../Service";
-import * as tlv from "../util/tlv";
+import { EventEmitter } from "node:events";
+import { Characteristic } from "../Characteristic.ts";
+import type { AccessControl } from "../definitions/index.ts";
+import { Service } from "../Service.ts";
+import * as tlv from "../util/tlv.ts";
 
 const enum AccessControlTypes {
   PASSWORD = 0x01,

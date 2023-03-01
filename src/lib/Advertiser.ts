@@ -1,15 +1,11 @@
 // eslint-disable-next-line @typescript-eslint/triple-slash-reference
 /// <reference path="../../@types/bonjour-hap.d.ts" />
-import ciao, { CiaoService, MDNSServerOptions, Responder, ServiceEvent, ServiceTxt, ServiceType } from "@homebridge/ciao";
-import { InterfaceName, IPAddress } from "@homebridge/ciao/lib/NetworkManager";
-import dbus, { DBusInterface, InvokeError, MessageBus } from "@homebridge/dbus-native";
-import assert from "assert";
-import bonjour, { BonjourHAP, BonjourHAPService, MulticastOptions } from "bonjour-hap";
-import crypto from "crypto";
-import createDebug from "debug";
-import { EventEmitter } from "events";
-import { AccessoryInfo } from "./model/AccessoryInfo";
-import { PromiseTimeout } from "./util/promise-utils";
+import assert from "node:assert";
+import { ciao, CiaoService, MDNSServerOptions, Responder, ServiceEvent, ServiceTxt, ServiceType, dbus, DBusInterface, InvokeError, MessageBus, InterfaceName, IPAddress, createDebug, bonjour, BonjourHAP, BonjourHAPService, MulticastOptions } from "../deps.ts";
+import crypto from "node:crypto";
+import { EventEmitter } from "node:events";
+import { AccessoryInfo } from "./model/AccessoryInfo.ts";
+import { PromiseTimeout } from "./util/promise-utils.ts";
 
 const debug = createDebug("HAP-NodeJS:Advertiser");
 

@@ -1,6 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import storage, { LocalStorage } from "node-persist";
+import { storage, LocalStorage } from "../../deps.ts";
 
 /**
  * @group Model

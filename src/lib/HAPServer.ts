@@ -1,11 +1,9 @@
-import crypto from "crypto";
-import createDebug from "debug";
-import { EventEmitter } from "events";
-import { SRP, SrpServer } from "fast-srp-hap";
-import { IncomingMessage, ServerResponse } from "http";
-import tweetnacl from "tweetnacl";
-import { URL } from "url";
-import { consideredTrue, HAPMimeTypes, PairingStates, PairMethods, TLVValues } from "../internal-types";
+import crypto from "node:crypto";
+import { createDebug, SRP, SrpServer, tweetnacl } from "../deps.ts";
+import { EventEmitter } from "node:events";
+import { IncomingMessage, ServerResponse } from "node:http";
+import { URL } from "node:url";
+import { consideredTrue, HAPMimeTypes, PairingStates, PairMethods, TLVValues } from "../internal-types.ts";
 import {
   AccessoriesResponse,
   CharacteristicId,
@@ -18,12 +16,12 @@ import {
   PrepareWriteRequest,
   ResourceRequest,
   VoidCallback,
-} from "../types";
-import { AccessoryInfo, PairingInformation, PermissionTypes } from "./model/AccessoryInfo";
-import { EventedHTTPServer, EventedHTTPServerEvent, HAPConnection, HAPEncryption, HAPUsername } from "./util/eventedhttp";
-import * as hapCrypto from "./util/hapCrypto";
-import { once } from "./util/once";
-import * as tlv from "./util/tlv";
+} from "../types.ts";
+import { AccessoryInfo, PairingInformation, PermissionTypes } from "./model/AccessoryInfo.ts";
+import { EventedHTTPServer, EventedHTTPServerEvent, HAPConnection, HAPEncryption, HAPUsername } from "./util/eventedhttp.ts";
+import * as hapCrypto from "./util/hapCrypto.ts";
+import { once } from "./util/once.ts";
+import * as tlv from "./util/tlv.ts";
 
 const debug = createDebug("HAP-NodeJS:HAPServer");
 

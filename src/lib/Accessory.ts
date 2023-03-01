@@ -1,9 +1,8 @@
-import assert from "assert";
-import { MulticastOptions } from "bonjour-hap";
-import crypto from "crypto";
-import createDebug from "debug";
-import { EventEmitter } from "events";
-import net from "net";
+import assert from "node:assert";
+import { MulticastOptions, createDebug } from "../deps.ts";
+import crypto from "node:crypto";
+import { EventEmitter } from "node:events";
+import net from "node:net";
 import {
   AccessoryJsonObject,
   CharacteristicId,
@@ -27,10 +26,10 @@ import {
   ResourceRequestType,
   VoidCallback,
   WithUUID,
-} from "../types";
-import { Advertiser, AdvertiserEvent, AvahiAdvertiser, BonjourHAPAdvertiser, CiaoAdvertiser, ResolvedAdvertiser } from "./Advertiser";
+} from "../types.ts";
+import { Advertiser, AdvertiserEvent, AvahiAdvertiser, BonjourHAPAdvertiser, CiaoAdvertiser, ResolvedAdvertiser } from "./Advertiser.ts";
 // noinspection JSDeprecatedSymbols
-import { LegacyCameraSource, LegacyCameraSourceAdapter, StreamController } from "./camera";
+import { LegacyCameraSource, LegacyCameraSourceAdapter, StreamController } from "./camera/index.ts";
 import {
   Access,
   ChangeReason,
@@ -39,7 +38,7 @@ import {
   CharacteristicOperationContext,
   CharacteristicSetCallback,
   Perms,
-} from "./Characteristic";
+} from "./Characteristic.ts";
 import {
   CameraController,
   CameraControllerOptions,
@@ -48,7 +47,7 @@ import {
   ControllerIdentifier,
   ControllerServiceMap,
   isSerializableController,
-} from "./controller";
+} from "./controller/index.ts";
 import {
   AccessoriesCallback,
   AddPairingCallback,
@@ -64,16 +63,17 @@ import {
   ResourceRequestCallback,
   TLVErrorCode,
   WriteCharacteristicsCallback,
-} from "./HAPServer";
-import { AccessoryInfo, PermissionTypes } from "./model/AccessoryInfo";
-import { ControllerStorage } from "./model/ControllerStorage";
-import { IdentifierCache } from "./model/IdentifierCache";
-import { SerializedService, Service, ServiceCharacteristicChange, ServiceEventTypes, ServiceId } from "./Service";
-import { clone } from "./util/clone";
-import { EventName, HAPConnection, HAPUsername } from "./util/eventedhttp";
-import { formatOutgoingCharacteristicValue } from "./util/request-util";
-import * as uuid from "./util/uuid";
-import { toShortForm } from "./util/uuid";
+} from "./HAPServer.ts";
+import { AccessoryInfo, PermissionTypes } from "./model/AccessoryInfo.ts";
+import { ControllerStorage } from "./model/ControllerStorage.ts";
+import { IdentifierCache } from "./model/IdentifierCache.ts";
+import { SerializedService, Service, ServiceCharacteristicChange, ServiceEventTypes, ServiceId } from "./Service.ts";
+import { clone } from "./util/clone.ts";
+import { EventName, HAPConnection, HAPUsername } from "./util/eventedhttp.ts";
+import { formatOutgoingCharacteristicValue } from "./util/request-util.ts";
+import * as uuid from "./util/uuid.ts";
+import { toShortForm } from "./util/uuid.ts";
+import { Buffer } from "node:buffer";
 
 const debug = createDebug("HAP-NodeJS:Accessory");
 const MAX_ACCESSORIES = 149; // Maximum number of bridged accessories per bridge.
@@ -1417,7 +1417,8 @@ export class Accessory extends EventEmitter {
         }
       }
     }, 1000);
-    this.configurationChangeDebounceTimeout.unref();
+    // this.configurationChangeDebounceTimeout.unref();
+    Deno.unrefTimer(this.configurationChangeDebounceTimeout)
     // 1s is fine, HomeKit is built that with configuration updates no iid or aid conflicts occur.
     // Thus, the only thing happening when the txt update arrives late is already removed accessories/services
     // not responding or new accessories/services not yet shown

@@ -1,5 +1,5 @@
-import assert from "assert";
-import { readUInt64LE } from "./tlv";
+import assert from "node:assert";
+import { readUInt64LE } from "./tlv.ts";
 
 const EPOCH_MILLIS_2001_01_01 = Date.UTC(2001, 0, 1, 0, 0, 0, 0);
 

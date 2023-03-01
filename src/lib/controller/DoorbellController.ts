@@ -1,9 +1,9 @@
-import { EventTriggerOption } from "../camera";
-import { Characteristic } from "../Characteristic";
-import type { Doorbell } from "../definitions";
-import { Service } from "../Service";
-import { CameraController, CameraControllerOptions, CameraControllerServiceMap } from "./CameraController";
-import { ControllerServiceMap } from "./Controller";
+import { EventTriggerOption } from "../camera/index.ts";
+import { Characteristic } from "../Characteristic.ts";
+import type { Doorbell } from "../definitions/index.ts";
+import { Service } from "../Service.ts";
+import { CameraController, CameraControllerOptions, CameraControllerServiceMap } from "./CameraController.ts";
+import { ControllerServiceMap } from "./Controller.ts";
 
 /**
  * Options which are additionally supplied for a {@link DoorbellController}.

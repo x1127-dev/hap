@@ -1,9 +1,9 @@
-import crypto from "crypto";
-import createDebug from "debug";
-import { EventEmitter } from "events";
-import { AudioBitrate, VideoCodecType } from ".";
-import { Access, Characteristic, CharacteristicEventTypes } from "../Characteristic";
-import { CameraRecordingDelegate, StateChangeDelegate } from "../controller";
+import crypto from "node:crypto";
+import { createDebug } from "../../deps.ts";
+import { EventEmitter } from "node:events";
+import { AudioBitrate, VideoCodecType } from "./index.ts";
+import { Access, Characteristic, CharacteristicEventTypes } from "../Characteristic.ts";
+import { CameraRecordingDelegate, StateChangeDelegate } from "../controller/index.ts";
 import {
   DataStreamConnection,
   DataStreamConnectionEvent,
@@ -18,13 +18,13 @@ import {
   Protocols,
   RequestHandler,
   Topics,
-} from "../datastream";
-import { CameraOperatingMode, CameraRecordingManagement } from "../definitions";
-import { HAPStatus } from "../HAPServer";
-import { Service } from "../Service";
-import { HapStatusError } from "../util/hapStatusError";
-import * as tlv from "../util/tlv";
-import { H264CodecParameters, H264Level, H264Profile, Resolution } from "./RTPStreamManagement";
+} from "../datastream/index.ts";
+import { CameraOperatingMode, CameraRecordingManagement } from "../definitions/index.ts";
+import { HAPStatus } from "../HAPServer.ts";
+import { Service } from "../Service.ts";
+import { HapStatusError } from "../util/hapStatusError.ts";
+import * as tlv from "../util/tlv.ts";
+import { H264CodecParameters, H264Level, H264Profile, Resolution } from "./RTPStreamManagement.ts";
 
 const debug = createDebug("HAP-NodeJS:Camera:RecordingManagement");
 

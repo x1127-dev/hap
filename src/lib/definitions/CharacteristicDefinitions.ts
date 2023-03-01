@@ -1,7 +1,7 @@
 // THIS FILE IS AUTO-GENERATED - DO NOT MODIFY
 // V=880
 
-import { Access, Characteristic, Formats, Perms, Units } from "../Characteristic";
+import { Access, Characteristic, Formats, Perms, Units } from "../Characteristic.ts";
 
 /**
  * Characteristic "Access Code Control Point"

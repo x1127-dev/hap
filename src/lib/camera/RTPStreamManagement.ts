@@ -1,21 +1,21 @@
-import assert from "assert";
-import crypto from "crypto";
-import createDebug from "debug";
-import net from "net";
-import { CharacteristicValue, SessionIdentifier } from "../../types";
-import { Access, Characteristic, CharacteristicEventTypes, CharacteristicSetCallback } from "../Characteristic";
-import { CameraController, CameraStreamingDelegate, ResourceRequestReason, StateChangeDelegate } from "../controller";
-import type { CameraRTPStreamManagement } from "../definitions";
-import { HAPStatus } from "../HAPServer";
-import { Service } from "../Service";
-import { HAPConnection, HAPConnectionEvent } from "../util/eventedhttp";
-import { HapStatusError } from "../util/hapStatusError";
-import { once } from "../util/once";
-import * as tlv from "../util/tlv";
-import * as uuid from "../util/uuid";
+import assert from "node:assert";
+import crypto from "node:crypto";
+import { createDebug } from "../../deps.ts";
+import net from "node:net";
+import { CharacteristicValue, SessionIdentifier } from "../../types.ts";
+import { Access, Characteristic, CharacteristicEventTypes, CharacteristicSetCallback } from "../Characteristic.ts";
+import { CameraController, CameraStreamingDelegate, ResourceRequestReason, StateChangeDelegate } from "../controller/index.ts";
+import type { CameraRTPStreamManagement } from "../definitions/index.ts";
+import { HAPStatus } from "../HAPServer.ts";
+import { Service } from "../Service.ts";
+import { HAPConnection, HAPConnectionEvent } from "../util/eventedhttp.ts";
+import { HapStatusError } from "../util/hapStatusError.ts";
+import { once } from "../util/once.ts";
+import * as tlv from "../util/tlv.ts";
+import * as uuid from "../util/uuid.ts";
 // noinspection JSDeprecatedSymbols
-import { LegacyCameraSource, LegacyCameraSourceAdapter } from "./Camera";
-import RTPProxy from "./RTPProxy";
+import { LegacyCameraSource, LegacyCameraSourceAdapter } from "./Camera.ts";
+import RTPProxy from "./RTPProxy.ts";
 
 const debug = createDebug("HAP-NodeJS:Camera:RTPStreamManagement");
 // ---------------------------------- TLV DEFINITIONS START ----------------------------------

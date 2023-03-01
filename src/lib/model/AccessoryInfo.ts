@@ -1,17 +1,17 @@
-import assert from "assert";
-import crypto from "crypto";
-import tweetnacl from "tweetnacl";
-import util from "util";
-import { AccessoryJsonObject, MacAddress } from "../../types";
-import { Categories } from "../Accessory";
-import { EventedHTTPServer, HAPConnection, HAPUsername } from "../util/eventedhttp";
-import { HAPStorage } from "./HAPStorage";
+import assert from "node:assert";
+import crypto from "node:crypto";
+import { tweetnacl } from "../../deps.ts";
+import util from "node:util";
+import { AccessoryJsonObject, MacAddress } from "../../types.ts";
+import { Categories } from "../Accessory.ts";
+import { EventedHTTPServer, HAPConnection, HAPUsername } from "../util/eventedhttp.ts";
+import { HAPStorage } from "./HAPStorage.ts";
+import { version } from "../../constants.ts";
+import { Buffer } from "node:buffer";
 
 
 function getVersion(): string {
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const packageJson = require("../../../package.json");
-  return packageJson.version;
+  return version;
 }
 
 /**

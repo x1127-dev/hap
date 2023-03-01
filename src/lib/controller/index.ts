@@ -1,6 +1,6 @@
-export * from "./Controller";
+export * from "./Controller.ts";
 
-export * from "./AdaptiveLightingController";
-export * from "./RemoteController";
-export * from "./CameraController";
-export * from "./DoorbellController";
+export * from "./AdaptiveLightingController.ts";
+export * from "./RemoteController.ts";
+export * from "./CameraController.ts";
+export * from "./DoorbellController.ts";

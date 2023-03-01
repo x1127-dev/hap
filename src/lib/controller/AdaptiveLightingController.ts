@@ -1,19 +1,19 @@
-import assert from "assert";
-import { HAPStatus } from "../HAPServer";
-import { ColorUtils } from "../util/color-utils";
-import { HapStatusError } from "../util/hapStatusError";
-import { epochMillisFromMillisSince2001_01_01Buffer } from "../util/time";
-import * as uuid from "../util/uuid";
-import createDebug from "debug";
-import { EventEmitter } from "events";
-import { CharacteristicValue } from "../../types";
+import assert from "node:assert";
+import { HAPStatus } from "../HAPServer.ts";
+import { ColorUtils } from "../util/color-utils.ts";
+import { HapStatusError } from "../util/hapStatusError.ts";
+import { epochMillisFromMillisSince2001_01_01Buffer } from "../util/time.ts";
+import * as uuid from "../util/uuid.ts";
+import { createDebug } from "../../deps.ts";
+import { EventEmitter } from "node:events";
+import { CharacteristicValue } from "../../types.ts";
 import {
   ChangeReason,
   Characteristic,
   CharacteristicChange,
   CharacteristicEventTypes,
   CharacteristicOperationContext,
-} from "../Characteristic";
+} from "../Characteristic.ts";
 import {
   Brightness,
   CharacteristicValueActiveTransitionCount,
@@ -23,15 +23,15 @@ import {
   Lightbulb,
   Saturation,
   SupportedCharacteristicValueTransitionConfiguration,
-} from "../definitions";
-import * as tlv from "../util/tlv";
+} from "../definitions/index.ts";
+import * as tlv from "../util/tlv.ts";
 import {
   ControllerIdentifier,
   ControllerServiceMap,
   DefaultControllerType,
   SerializableController,
   StateChangeDelegate,
-} from "./Controller";
+} from "./Controller.ts";
 
 const debug = createDebug("HAP-NodeJS:Controller:TransitionControl");
 

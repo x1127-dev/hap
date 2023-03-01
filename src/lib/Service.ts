@@ -1,9 +1,9 @@
-import assert from "assert";
-import createDebug from "debug";
-import { EventEmitter } from "events";
-import { CharacteristicValue, Nullable, ServiceJsonObject, WithUUID } from "../types";
-import { CharacteristicWarning, CharacteristicWarningType } from "./Accessory";
-import { Characteristic, CharacteristicChange, CharacteristicEventTypes, SerializedCharacteristic } from "./Characteristic";
+import assert from "node:assert";
+import { createDebug } from "../deps.ts";
+import { EventEmitter } from "node:events";
+import { CharacteristicValue, Nullable, ServiceJsonObject, WithUUID } from "../types.ts";
+import { CharacteristicWarning, CharacteristicWarningType } from "./Accessory.ts";
+import { Characteristic, CharacteristicChange, CharacteristicEventTypes, SerializedCharacteristic } from "./Characteristic.ts";
 import type {
   AccessCode,
   AccessControl,
@@ -82,11 +82,11 @@ import type {
   WiFiTransport,
   Window,
   WindowCovering,
-} from "./definitions";
-import { IdentifierCache } from "./model/IdentifierCache";
-import { HAPConnection } from "./util/eventedhttp";
-import { HapStatusError } from "./util/hapStatusError";
-import { toShortForm } from "./util/uuid";
+} from "./definitions/index.ts";
+import { IdentifierCache } from "./model/IdentifierCache.ts";
+import { HAPConnection } from "./util/eventedhttp.ts";
+import { HapStatusError } from "./util/hapStatusError.ts";
+import { toShortForm } from "./util/uuid.ts";
 
 const debug = createDebug("HAP-NodeJS:Service");
 
@@ -1075,4 +1075,4 @@ export class Service extends EventEmitter {
 // We have a cyclic dependency problem. Within this file we have the definitions of "./definitions" as
 // type imports only (in order to define the static properties). Setting those properties is done outside
 // this file, within the definition files. Therefore, we import it at the end of this file. Seems weird, but is important.
-import "./definitions/ServiceDefinitions";
+// import "./definitions/ServiceDefinitions.ts";

@@ -1,13 +1,12 @@
-import assert from "assert";
-import crypto from "crypto";
-import hkdf from "futoin-hkdf";
-import tweetnacl, { BoxKeyPair } from "tweetnacl";
-import { HAPEncryption } from "./eventedhttp";
+import assert from "node:assert";
+import crypto from "node:crypto";
+import { hkdf, tweetnacl, BoxKeyPair } from "../../deps.ts";
+import { HAPEncryption } from "./eventedhttp.ts";
 
-if (!crypto.getCiphers().includes("chacha20-poly1305")) {
-  assert.fail("The cipher 'chacha20-poly1305' is not supported with your current running nodejs version v" + process.version + ". " +
-    "At least a nodejs version of v10.17.0 (excluding v11.0 and v11.1) is required!");
-}
+// if (!crypto.getCiphers().includes("chacha20-poly1305")) {
+//   assert.fail("The cipher 'chacha20-poly1305' is not supported with your current running nodejs version v" + process.version + ". " +
+//     "At least a nodejs version of v10.17.0 (excluding v11.0 and v11.1) is required!");
+// }
 
 /**
  * @group Cryptography

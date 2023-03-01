@@ -1,12 +1,13 @@
-import assert from "assert";
-import crypto from "crypto";
-import createDebug from "debug";
-import { EventEmitter, EventEmitter as NodeEventEmitter } from "events";
-import net, { Socket } from "net";
-import { HAPConnection, HAPConnectionEvent } from "../util/eventedhttp";
+import assert from "node:assert";
+import crypto from "node:crypto";
+import { createDebug } from "../../deps.ts";
+import { EventEmitter, EventEmitter as NodeEventEmitter } from "node:events";
+import net, { Socket } from "node:net";
+import { HAPConnection, HAPConnectionEvent } from "../util/eventedhttp.ts";
 
-import * as hapCrypto from "../util/hapCrypto";
-import { DataStreamParser, DataStreamReader, DataStreamWriter, Int64 } from "./DataStreamParser";
+import * as hapCrypto from "../util/hapCrypto.ts";
+import { DataStreamParser, DataStreamReader, DataStreamWriter, Int64 } from "./DataStreamParser.ts";
+import { Buffer } from "node:buffer";
 
 
 const debug = createDebug("HAP-NodeJS:DataStream:Server");

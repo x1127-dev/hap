@@ -1,15 +1,15 @@
-import assert from "assert";
-import createDebug from "debug";
-import { EventEmitter } from "events";
-import { CharacteristicValue } from "../../types";
-import { Accessory } from "../Accessory";
-import { AudioBitrate, AudioSamplerate } from "../camera";
+import assert from "node:assert";
+import { createDebug } from "../../deps.ts";
+import { EventEmitter } from "node:events";
+import { CharacteristicValue } from "../../types.ts";
+import { Accessory } from "../Accessory.ts";
+import { AudioBitrate, AudioSamplerate } from "../camera/index.ts";
 import {
   Characteristic,
   CharacteristicEventTypes,
   CharacteristicGetCallback,
   CharacteristicSetCallback,
-} from "../Characteristic";
+} from "../Characteristic.ts";
 import {
   HDSProtocolSpecificErrorReason,
   DataStreamConnection,
@@ -24,25 +24,25 @@ import {
   Protocols,
   RequestHandler,
   Topics,
-} from "../datastream";
+} from "../datastream/index.ts";
 import type {
   AudioStreamManagement,
   DataStreamTransportManagement,
   Siri,
   TargetControl,
   TargetControlManagement,
-} from "../definitions";
-import { HAPStatus } from "../HAPServer";
-import { Service } from "../Service";
-import { HAPConnection, HAPConnectionEvent } from "../util/eventedhttp";
-import * as tlv from "../util/tlv";
+} from "../definitions/index.ts";
+import { HAPStatus } from "../HAPServer.ts";
+import { Service } from "../Service.ts";
+import { HAPConnection, HAPConnectionEvent } from "../util/eventedhttp.ts";
+import * as tlv from "../util/tlv.ts";
 import {
   ControllerIdentifier,
   ControllerServiceMap,
   DefaultControllerType,
   SerializableController,
   StateChangeDelegate,
-} from "./Controller";
+} from "./Controller.ts";
 
 const debug = createDebug("HAP-NodeJS:Remote:Controller");
 

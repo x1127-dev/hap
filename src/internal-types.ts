@@ -1,4 +1,4 @@
-import { CharacteristicValue, Nullable } from "./types";
+import { CharacteristicValue, Nullable } from "./types.ts";
 
 /**
  * @group HAP Accessory Server

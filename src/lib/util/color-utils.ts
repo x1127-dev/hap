@@ -1,4 +1,4 @@
-import assert from "assert";
+import assert from "node:assert";
 
 const lookupTable: Map<number, [number, number]> = new Map([ // <MIRED, [SATURATION, HUE]>
   [100, [19, 222.1]],

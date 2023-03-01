@@ -1,17 +1,17 @@
-import createDebug from "debug";
-import { Characteristic, CharacteristicEventTypes, CharacteristicSetCallback } from "../Characteristic";
-import type { DataStreamTransportManagement } from "../definitions";
-import { HAPStatus } from "../HAPServer";
-import { Service } from "../Service";
-import { HAPConnection } from "../util/eventedhttp";
-import * as tlv from "../util/tlv";
+import { createDebug } from "../../deps.ts";
+import { Characteristic, CharacteristicEventTypes, CharacteristicSetCallback } from "../Characteristic.ts";
+import type { DataStreamTransportManagement } from "../definitions/index.ts";
+import { HAPStatus } from "../HAPServer.ts";
+import { Service } from "../Service.ts";
+import { HAPConnection } from "../util/eventedhttp.ts";
+import * as tlv from "../util/tlv.ts";
 import {
   DataStreamConnection,
   DataStreamServer,
   DataStreamServerEvent,
   GlobalEventHandler,
   GlobalRequestHandler, Protocols, Topics,
-} from "./DataStreamServer";
+} from "./DataStreamServer.ts";
 
 const debug = createDebug("HAP-NodeJS:DataStream:Management");
 

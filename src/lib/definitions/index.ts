@@ -1,2 +1,2 @@
-export * from "./CharacteristicDefinitions";
-export * from "./ServiceDefinitions";
+export * from "./CharacteristicDefinitions.ts";
+export * from "./ServiceDefinitions.ts";

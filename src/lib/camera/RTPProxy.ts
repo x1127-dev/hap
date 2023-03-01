@@ -1,4 +1,4 @@
-import dgram, { Socket, SocketType } from "dgram";
+import dgram, { Socket, SocketType } from "node:dgram";
 
 /**
  * @group Camera

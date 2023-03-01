@@ -1,6 +1,6 @@
-import { Formats, Perms, Units } from "./lib/Characteristic";
-import { ResourceRequestReason } from "./lib/controller";
-import { HAPStatus } from "./lib/HAPServer";
+import { Formats, Perms, Units } from "./lib/Characteristic.ts";
+import { ResourceRequestReason } from "./lib/controller/index.ts";
+import { HAPStatus } from "./lib/HAPServer.ts";
 
 /**
  * @group Utils

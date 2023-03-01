@@ -1,8 +1,8 @@
-import assert from "assert";
-import createDebug from "debug";
-import { EventEmitter } from "events";
-import { CharacteristicJsonObject, CharacteristicValue, Nullable, PartialAllowingNull, VoidCallback } from "../types";
-import { CharacteristicWarningType } from "./Accessory";
+import assert from "node:assert";
+import { createDebug } from "../deps.ts";
+import { EventEmitter } from "node:events";
+import { CharacteristicJsonObject, CharacteristicValue, Nullable, PartialAllowingNull, VoidCallback } from "../types.ts";
+import { CharacteristicWarningType } from "./Accessory.ts";
 import type {
   AccessCodeControlPoint,
   AccessCodeSupportedConfiguration,
@@ -260,13 +260,13 @@ import type {
   WiFiCapabilities,
   WiFiConfigurationControl,
   WiFiSatelliteStatus,
-} from "./definitions";
-import { HAPStatus, IsKnownHAPStatusError } from "./HAPServer";
-import { IdentifierCache } from "./model/IdentifierCache";
-import { clone } from "./util/clone";
-import { HAPConnection } from "./util/eventedhttp";
-import { HapStatusError } from "./util/hapStatusError";
-import { once } from "./util/once";
+} from "./definitions/index.ts";
+import { HAPStatus, IsKnownHAPStatusError } from "./HAPServer.ts";
+import { IdentifierCache } from "./model/IdentifierCache.ts";
+import { clone } from "./util/clone.ts";
+import { HAPConnection } from "./util/eventedhttp.ts";
+import { HapStatusError } from "./util/hapStatusError.ts";
+import { once } from "./util/once.ts";
 import {
   formatOutgoingCharacteristicValue,
   isIntegerNumericFormat,
@@ -274,8 +274,8 @@ import {
   isUnsignedNumericFormat,
   numericLowerBound,
   numericUpperBound,
-} from "./util/request-util";
-import { BASE_UUID, toShortForm } from "./util/uuid";
+} from "./util/request-util.ts";
+import { BASE_UUID, toShortForm } from "./util/uuid.ts";
 
 const debug = createDebug("HAP-NodeJS:Characteristic");
 
@@ -3162,4 +3162,4 @@ export class Characteristic extends EventEmitter {
 // We have a cyclic dependency problem. Within this file we have the definitions of "./definitions" as
 // type imports only (in order to define the static properties). Setting those properties is done outside
 // this file, within the definition files. Therefore, we import it at the end of this file. Seems weird, but is important.
-import "./definitions/CharacteristicDefinitions";
+import "./definitions/CharacteristicDefinitions.ts";

@@ -1,5 +1,5 @@
-import { CharacteristicValue, Nullable } from "../../types";
-import { CharacteristicProps, Formats } from "../Characteristic";
+import { CharacteristicValue, Nullable } from "../../types.ts";
+import { CharacteristicProps, Formats } from "../Characteristic.ts";
 
 /**
  * Prepares the characteristic value to be sent to the HomeKit controller.

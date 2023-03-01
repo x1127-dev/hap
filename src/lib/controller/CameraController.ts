@@ -1,7 +1,7 @@
-import crypto from "crypto";
-import createDebug from "debug";
-import { EventEmitter } from "events";
-import { CharacteristicValue, SessionIdentifier } from "../../types";
+import crypto from "node:crypto";
+import { createDebug } from "../../deps.ts";
+import { EventEmitter } from "node:events";
+import { CharacteristicValue, SessionIdentifier } from "../../types.ts";
 import {
   CameraRecordingConfiguration,
   CameraRecordingOptions,
@@ -17,9 +17,9 @@ import {
   RTPStreamManagementState,
   SnapshotRequest,
   StreamingRequest,
-} from "../camera";
-import { Characteristic, CharacteristicEventTypes, CharacteristicGetCallback, CharacteristicSetCallback } from "../Characteristic";
-import { DataStreamManagement, HDSProtocolSpecificErrorReason } from "../datastream";
+} from "../camera/index.ts";
+import { Characteristic, CharacteristicEventTypes, CharacteristicGetCallback, CharacteristicSetCallback } from "../Characteristic.ts";
+import { DataStreamManagement, HDSProtocolSpecificErrorReason } from "../datastream/index.ts";
 import {
   CameraOperatingMode,
   CameraRecordingManagement,
@@ -29,11 +29,11 @@ import {
   MotionSensor,
   OccupancySensor,
   Speaker,
-} from "../definitions";
-import { HAPStatus } from "../HAPServer";
-import { Service } from "../Service";
-import { HapStatusError } from "../util/hapStatusError";
-import { ControllerIdentifier, ControllerServiceMap, DefaultControllerType, SerializableController, StateChangeDelegate } from "./Controller";
+} from "../definitions/index.ts";
+import { HAPStatus } from "../HAPServer.ts";
+import { Service } from "../Service.ts";
+import { HapStatusError } from "../util/hapStatusError.ts";
+import { ControllerIdentifier, ControllerServiceMap, DefaultControllerType, SerializableController, StateChangeDelegate } from "./Controller.ts";
 
 const debug = createDebug("HAP-NodeJS:Camera:Controller");
 

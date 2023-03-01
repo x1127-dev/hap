@@ -1,16 +1,16 @@
-import createDebug from "debug";
-import fs from "fs";
-import path from "path";
-import { CharacteristicValue, Nullable } from "../types";
-import { Accessory } from "./Accessory";
+import { createDebug } from "../deps.ts";
+import fs from "node:fs";
+import path from "node:path";
+import { CharacteristicValue, Nullable } from "../types.ts";
+import { Accessory } from "./Accessory.ts";
 import {
   Characteristic,
   CharacteristicEventTypes,
   CharacteristicGetCallback,
   CharacteristicSetCallback,
-} from "./Characteristic";
-import { Service } from "./Service";
-import * as uuid from "./util/uuid";
+} from "./Characteristic.ts";
+import { Service } from "./Service.ts";
+import * as uuid from "./util/uuid.ts";
 
 const debug = createDebug("HAP-NodeJS:AccessoryLoader");
 

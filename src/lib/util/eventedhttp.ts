@@ -1,16 +1,14 @@
-import { getNetAddress } from "@homebridge/ciao/lib/util/domain-formatter";
-import assert from "assert";
-import createDebug from "debug";
-import { EventEmitter } from "events";
-import { SrpServer } from "fast-srp-hap";
-import http, { IncomingMessage, ServerResponse } from "http";
-import net, { AddressInfo, Socket } from "net";
-import os from "os";
-import { CharacteristicEventNotification, EventNotification } from "../../internal-types";
-import { CharacteristicValue, Nullable, SessionIdentifier } from "../../types";
-import * as hapCrypto from "./hapCrypto";
-import { getOSLoopbackAddressIfAvailable } from "./net-utils";
-import * as uuid from "./uuid";
+import { getNetAddress, createDebug, SrpServer } from "../../deps.ts";
+import assert from "node:assert";
+import { EventEmitter } from "node:events";
+import http, { IncomingMessage, ServerResponse } from "node:http";
+import net, { AddressInfo, Socket } from "node:net";
+import os from "node:os";
+import { CharacteristicEventNotification, EventNotification } from "../../internal-types.ts";
+import { CharacteristicValue, Nullable, SessionIdentifier } from "../../types.ts";
+import * as hapCrypto from "./hapCrypto.ts";
+import { getOSLoopbackAddressIfAvailable } from "./net-utils.ts";
+import * as uuid from "./uuid.ts";
 
 
 const debug = createDebug("HAP-NodeJS:EventedHTTPServer");
@@ -172,7 +170,8 @@ export class EventedHTTPServer extends EventEmitter {
           .join(", ");
         debug("Currently %d hap connections open: %s", this.connections.size, connectionInformation);
       }, 60_000);
-      this.connectionLoggingInterval.unref();
+      // this.connectionLoggingInterval.unref();
+      Deno.unrefTimer(this.connectionLoggingInterval);
 
       this.emit(EventedHTTPServerEvent.LISTENING, address.port, address.address);
     });

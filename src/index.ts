@@ -1,42 +1,43 @@
-import "source-map-support/register"; // registering node-source-map-support for typescript stack traces
-import "./lib/definitions"; // must be loaded before Characteristic and Service class
-import createDebug from "debug";
-import { HAPStorage } from "./lib/model/HAPStorage";
+// import "source-map-support/register"; // registering node-source-map-support for typescript stack traces
+import "./lib/definitions/index.ts"; // must be loaded before Characteristic and Service class
+import { createDebug } from "./deps.ts";
+import { HAPStorage } from "./lib/model/HAPStorage.ts";
+import { version } from "./constants.ts";
 
 /**
  * @group Utils
  */
-export * as AccessoryLoader from "./lib/AccessoryLoader";
+export * as AccessoryLoader from "./lib/AccessoryLoader.ts";
 /**
  * @group Utils
  */
-export * as uuid from "./lib/util/uuid";
-export * from "./lib/model/HAPStorage";
-export * from "./lib/Accessory";
-export * from "./lib/Bridge";
-export * from "./lib/Service";
-export * from "./lib/Characteristic";
-export * from "./lib/AccessoryLoader";
-export * from "./lib/camera";
-export * from "./lib/tv/AccessControlManagement";
-export * from "./lib/HAPServer";
-export * from "./lib/datastream";
-export * from "./lib/controller";
-export * from "./lib/model/AccessoryInfo";
+export * as uuid from "./lib/util/uuid.ts";
+export * from "./lib/model/HAPStorage.ts";
+export * from "./lib/Accessory.ts";
+export * from "./lib/Bridge.ts";
+export * from "./lib/Service.ts";
+export * from "./lib/Characteristic.ts";
+export * from "./lib/AccessoryLoader.ts";
+export * from "./lib/camera/index.ts";
+export * from "./lib/tv/AccessControlManagement.ts";
+export * from "./lib/HAPServer.ts";
+export * from "./lib/datastream/index.ts";
+export * from "./lib/controller/index.ts";
+export * from "./lib/model/AccessoryInfo.ts";
 
-export * from "./lib/util/clone";
-export * from "./lib/util/once";
-export * from "./lib/util/tlv";
-export * from "./lib/util/hapStatusError";
-export * from "./lib/util/color-utils";
-export * from "./lib/util/time";
-export * from "./lib/util/eventedhttp";
+export * from "./lib/util/clone.ts";
+export * from "./lib/util/once.ts";
+export * from "./lib/util/tlv.ts";
+export * from "./lib/util/hapStatusError.ts";
+export * from "./lib/util/color-utils.ts";
+export * from "./lib/util/time.ts";
+export * from "./lib/util/eventedhttp.ts";
 
-export * from "./types";
+export * from "./types.ts";
 /**
  * @group Utils
  */
-export * as LegacyTypes from "./accessories/types";
+export * as LegacyTypes from "./accessories/types.ts";
 
 const debug = createDebug("HAP-NodeJS:Advertiser");
 
@@ -47,9 +48,7 @@ const debug = createDebug("HAP-NodeJS:Advertiser");
  * @group Utils
  */
 export function HAPLibraryVersion(): string {
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const packageJson = require("../package.json");
-  return packageJson.version;
+  return version;
 }
 
 function printInit() {
@@ -74,8 +73,8 @@ export function init(storagePath?: string): void {
   }
 }
 
-import * as Services from "./lib/definitions/ServiceDefinitions";
-import * as Characteristics from "./lib/definitions/CharacteristicDefinitions";
+import * as Services from "./lib/definitions/ServiceDefinitions.ts";
+import * as Characteristics from "./lib/definitions/CharacteristicDefinitions.ts";
 
 /**
  * This namespace doesn't actually exist and is only used to generate documentation for all Service and Characteristic Definitions.
